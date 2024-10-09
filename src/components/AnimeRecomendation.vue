@@ -9,6 +9,7 @@ const show = ref(false)
 
 function fetch(){
   axios.get('https://api.jikan.moe/v4/recommendations/anime').then(response =>{
+    console.log(response.data.data)
     for (const el of response.data.data){
       responses.value.push(el)
     }
@@ -23,7 +24,7 @@ function fetch(){
 
 <template>
   <button @click="fetch">anime recomend</button>
-  <p v-show="show" v-for="item in responses">{{item}}</p>
+  <p v-show="show" v-for="item in responses">{{item.mal_id}}<br>{{item.content}}</p>
   <img :src="display"></img>
 </template>
 
