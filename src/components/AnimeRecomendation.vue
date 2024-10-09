@@ -24,7 +24,7 @@ function fetch(){
 
 <template>
   <button @click="fetch">anime recomend</button>
-  <p v-show="show" v-for="item in responses">{{item.mal_id}}<br>{{item.content}}</p>
+  <p v-show="show" v-for="item in responses">{{item.entry[0].title}}|{{item.entry[1].title}}<br>{{item.content}}</p>
   <img :src="display"></img>
 </template>
 
